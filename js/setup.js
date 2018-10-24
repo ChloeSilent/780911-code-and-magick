@@ -92,7 +92,7 @@ var userWizardCoatElement = userWizardElement.querySelector('.wizard-coat');
 var inputColorCoatElement = document.querySelector('input[name="coat-color"]');
 var userWizardEyesElement = userWizardElement.querySelector('.wizard-eyes');
 var inputColorEyesElement = document.querySelector('input[name="eyes-color"]');
-var userWizardFireballElement = userWizardElement.querySelector('.setup-fireball-wrap');
+var userWizardFireballElement = document.querySelector('.setup-fireball-wrap');
 var inputColorFireballElement = document.querySelector('input[name="fireball-color"]');
 var wizardCoatsColor = ['rgb(101, 137, 164)',
   'rgb(241, 43, 107)',
@@ -122,7 +122,7 @@ var wizardfireballColor = [
 var onUserImageClick = function () {
   setupElement.classList.remove('hidden');
   userProfil.querySelector('.setup-similar').classList.remove('hidden');
-// userProfil.classList.remove('hidden');
+  // userProfil.classList.remove('hidden');
 };
 /* Открытие окна настройки персонажа при клике enter на аватарку*/
 var onUserImageEnterDown = function (evt) {
@@ -176,6 +176,7 @@ var onWizardEyesClick = function () {
 /* Изменение цвета фаерболов по нажатию*/
 var onWizardFireballClick = function () {
   var color = getFromArray(wizardfireballColor);
+  // console.log('getFromArray(wizardfireballColor) is ' + color);
   userWizardFireballElement.style.background = color;
   inputColorFireballElement.value = color;
 };
