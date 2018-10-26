@@ -6,6 +6,7 @@ var wizarNames = ['Иван', 'Хуан Себастьян', 'Мария', 'Кр
 var wizardSecondnames = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
+
 // var userProfil = document.querySelector('.setup');
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
@@ -119,6 +120,10 @@ var wizardfireballColor = [
   '#e6e848'
 ];
 
+
+var ENTER_INPUT = 13;
+var ECS_INPUT = 27;
+
 /* Открытие окна настройки персонажа при клике на аватарку*/
 var onUserImageClick = function () {
   setupElement.classList.remove('hidden');
@@ -126,7 +131,7 @@ var onUserImageClick = function () {
 };
 /* Открытие окна настройки персонажа при клике enter на аватарку*/
 var onUserImageEnterDown = function (evt) {
-  if (evt.keyCode === 13) {
+  if (evt.keyCode === ENTER_INPUT) {
     setupElement.classList.remove('hidden');
     setupElement.querySelector('.setup-similar').classList.remove('hidden');
   }
@@ -134,30 +139,26 @@ var onUserImageEnterDown = function (evt) {
 /* закрытие окна настройки персонажа при клике на крестик в окне настройки персонажа*/
 var onButtonCloseClick = function () {
   setupElement.classList.add('hidden');
-  setupElement.querySelector('.setup-similar').classList.add('hidden');
 };
 /* если поле ввода имени в фокусе и при этом нажат esc, то окно не закроется*/
 var onNameInputEscDown = function (evt) {
-  evt.preventDefault(); // останавливает всплытие события
-  evt.stopPropagation(); // останавливает всплытие события
-  if (userNameInputElement.focus && evt.keyCode === 27) {
+
+  if (userNameInputElement.focus && evt.keyCode === ECS_INPUT) {
     setupElement.classList.remove('hidden');
-    setupElement.querySelector('.setup-similar').classList.add('hidden');
+    evt.preventDefault(); // останавливает всплытие события
+    evt.stopPropagation();
   }
 };
 /* Если окно настроек открыто, нажатие клавиши ESC приводит к закрытию диалога */
 var onUserDialogEscDown = function (evt) {
-  if (evt.keyCode === 27) {
+  if (evt.keyCode === ECS_INPUT) {
     setupElement.classList.add('hidden');
-    setupElement.querySelector('.setup-similar').classList.add('hidden');
   }
 };
-
 /* закрытие окна настройки персонажа при нажатии enter на крестике*/
 var onCloseButtonEnterDown = function (evt) {
-  if (evt.keyCode === 13) {
+  if (evt.keyCode === ENTER_INPUT) {
     setupElement.classList.add('hidden');
-    setupElement.querySelector('.setup-similar').classList.add('hidden');
   }
 };
 
