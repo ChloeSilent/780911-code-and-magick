@@ -120,13 +120,14 @@ var wizardfireballColor = [
   '#e6e848'
 ];
 
+
 var ENTER_INPUT = 13;
 var ECS_INPUT = 27;
+
 /* Открытие окна настройки персонажа при клике на аватарку*/
 var onUserImageClick = function () {
   setupElement.classList.remove('hidden');
   setupElement.querySelector('.setup-similar').classList.remove('hidden');
-
 };
 /* Открытие окна настройки персонажа при клике enter на аватарку*/
 var onUserImageEnterDown = function (evt) {
@@ -138,7 +139,6 @@ var onUserImageEnterDown = function (evt) {
 /* закрытие окна настройки персонажа при клике на крестик в окне настройки персонажа*/
 var onButtonCloseClick = function () {
   setupElement.classList.add('hidden');
-
 };
 /* если поле ввода имени в фокусе и при этом нажат esc, то окно не закроется*/
 var onNameInputEscDown = function (evt) {
@@ -161,6 +161,7 @@ var onCloseButtonEnterDown = function (evt) {
     setupElement.classList.add('hidden');
   }
 };
+
 /* Изменение цвета мантии мага по нажатию*/
 var onWizardCoatClick = function () {
   var color = getFromArray(wizardCoatsColor);
